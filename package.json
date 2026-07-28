@@ -1,31 +1,14 @@
 {
-  "name": "finalproject-secondhandsystems",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "second-hand-systems",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint src/**/*.js",
-    "format": "prettier --write ."
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/tjaRoxasXIII/FinalProject-SecondHandSystems.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
-  "bugs": {
-    "url": "https://github.com/tjaRoxasXIII/FinalProject-SecondHandSystems/issues"
-  },
-  "homepage": "https://github.com/tjaRoxasXIII/FinalProject-SecondHandSystems#readme",
   "devDependencies": {
-    "@eslint/css": "^1.4.0",
-    "@eslint/js": "^10.0.1",
-    "@eslint/json": "^2.0.1",
-    "eslint": "^10.8.0",
-    "globals": "^17.8.0",
-    "prettier": "^3.9.6"
+    "vite": "^8.1.1"
   }
 }

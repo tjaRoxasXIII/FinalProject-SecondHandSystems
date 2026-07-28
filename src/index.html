@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SecondHandPC Builder</title>
 
-  <link rel="stylesheet" href="main.css">
-
+  <link rel="stylesheet" href="styles/main.css">
+  <script src="scripts/api/twilio.js" defer></script>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Roboto+Condensed:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 
@@ -14,7 +14,7 @@
   <div class="app-shell">
 
     <header class="app-header">
-      <div class="app-logo">SECONDHANDPC</div>
+      <div class="app-logo">SECOND-HAND SYSTEMS</div>
       <div class="app-views">
           <button class="btn btn-primary">BUILDER</button>
           <button class="btn btn-secondary">MY BUILDS</button>
@@ -61,6 +61,8 @@
           </div>
 
         </div>
+        <button id="sendTestMessage">Send Test Message</button>
+        <div id="status"></div>
       </section>
 
       <aside class="build-panel">
@@ -110,7 +112,7 @@
           </div>
 
           <div class="build-part-slot">
-            <div class="build-part-label">COOL</div>
+            <div class="build-part-label">COOLER</div>
             <div class="build-part-value">None</div>
           </div>
         </div>
