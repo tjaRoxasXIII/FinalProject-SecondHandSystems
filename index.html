@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SecondHandPC Builder</title>
+
+  <!-- Main stylesheet -->
+  <link rel="stylesheet" href="main.css">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Roboto+Condensed:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div class="app-shell">
+
+    <!-- Header -->
+    <header class="app-header">
+      <div class="app-logo">SECONDHANDPC</div>
+      <div class="app-views">
+          <button class="btn btn-primary">BUILDER</button>
+          <button class="btn btn-secondary">MY BUILDS</button>
+      </div>
+    </header>
+
+    <main class="app-main">
+
+      <aside class="sidebar">
+        <div class="sidebar-title">Components</div>
+        <ul class="sidebar-list">
+          <li class="sidebar-item sidebar-item--active">CPU</li>
+          <li class="sidebar-item">GPU</li>
+          <li class="sidebar-item">RAM</li>
+          <li class="sidebar-item">SSD/HDD</li>
+          <li class="sidebar-item">MOBO</li>
+          <li class="sidebar-item">PSU</li>
+          <li class="sidebar-item">CASE</li>
+          <li class="sidebar-item">COOLER</li>
+        </ul>
+      </aside>
+
+      <section class="listings-panel">
+        <div class="listings-header">
+          <div class="listings-title">PROCESSOR</div>
+          <div class="listings-count">5 listings</div>
+        </div>
+
+        <div class="listings-list">
+
+          <!-- Example Listing Card -->
+          <div class="listing-card">
+            <div class="listing-main">
+              <div class="listing-title">AMD Ryzen 5 3600</div>
+              <div class="listing-specs">6C/12T • 4.2GHz • AM4 • 65W</div>
+            </div>
+
+            <div class="listing-meta">
+              <div class="listing-condition">Condition: Good</div>
+              <div class="listing-seller">@refurb_tech</div>
+              <div class="listing-age">Listed 5d ago</div>
+            </div>
+
+            <div class="listing-price">$68</div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Build Panel -->
+      <aside class="build-panel">
+
+        <div class="build-budget">
+          <div class="build-budget-label">Budget</div>
+          <div class="build-budget-values">
+            <span class="build-budget-total">$600</span>
+            <span class="build-budget-spent">$0 spent</span>
+          </div>
+        </div>
+
+        <div class="build-parts-grid">
+          <div class="build-part-slot">
+            <div class="build-part-label">CPU</div>
+            <div class="build-part-value">None</div>
+          </div>
+
+          <div class="build-part-slot">
+            <div class="build-part-label">GPU</div>
+            <div class="build-part-value">None</div>
+          </div>
+
+          <div class="build-part-slot">
+            <div class="build-part-label">RAM</div>
+            <div class="build-part-value">None</div>
+          </div>
+
+          <div class="build-part-slot">
+            <div class="build-part-label">SSD/HDD</div>
+            <div class="build-part-value">None</div>
+          </div>
+
+          <div class="build-part-slot">
+            <div class="build-part-label">MOBO</div>
+            <div class="build-part-value">None</div>
+          </div>
+
+          <div class="build-part-slot">
+            <div class="build-part-label">PSU</div>
+            <div class="build-part-value">None</div>
+          </div>
+
+          <div class="build-part-slot">
+            <div class="build-part-label">CASE</div>
+            <div class="build-part-value">None</div>
+          </div>
+
+          <div class="build-part-slot">
+            <div class="build-part-label">COOL</div>
+            <div class="build-part-value">None</div>
+          </div>
+        </div>
+
+        <div class="build-actions">
+          <input id="build-name-input" class="build-name-input" type="text" placeholder="Build name...">
+
+          <div class="build-buttons">
+            <button class="btn btn-primary">Save Build</button>
+            <button class="btn btn-secondary">Clear</button>
+          </div>
+        </div>
+
+      </aside>
+
+    </main>
+  </div>
+</body>
+</html>

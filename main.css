@@ -1,0 +1,307 @@
+:root {
+  --primary-color: #171a21;
+  --accent-color-dark-bg: #004c78;
+  --accent-color-light-bg: #1382d1;
+  --secondary-color: #e6e1e1;
+  --bg-color: #222a41;
+  --font-light: #F5F5F5;
+  --font-values: rgb(245, 176, 74);
+  --heading-font: 'Orbitron', sans-serif;
+  --body-font: 'Roboto Condensed', sans-serif;
+}
+
+/* Global */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--body-font);
+  background-color: var(--primary-color);
+  color: var(--font-light);
+}
+
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--bg-color);
+  border-bottom: 1px solid #11151d;
+}
+
+.app-logo {
+  font-family: var(--heading-font);
+  font-size: 1.1rem;
+  letter-spacing: 0.12em;
+}
+
+.app-section-label {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  color: var(--secondary-color);
+}
+
+/* Main layout */
+
+.app-main {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr) 280px;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+}
+
+/* Sidebar: component list */
+
+.sidebar {
+  background-color: #1b2234;
+  border-radius: 8px;
+  padding: 0.75rem;
+}
+
+.sidebar-title {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+  color: var(--secondary-color);
+}
+
+.sidebar-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar-item {
+  padding: 0.4rem 0.6rem;
+  margin-bottom: 0.25rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  color: var(--secondary-color);
+  cursor: pointer;
+}
+
+.sidebar-item--active {
+  background-color: var(--accent-color-dark-bg);
+  color: var(--font-light);
+}
+
+/* Center: listings */
+
+.listings-panel {
+  background-color: #1b2234;
+  border-radius: 8px;
+  padding: 0.75rem 0.75rem 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.listings-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.75rem;
+}
+
+.listings-title {
+  font-family: var(--heading-font);
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+}
+
+.listings-count {
+  font-size: 0.8rem;
+  color: var(--secondary-color);
+}
+
+.listings-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Listing card */
+
+.listing-card {
+  background-color: #171c2b;
+  border-radius: 8px;
+  padding: 0.6rem 0.7rem;
+  border: 1px solid #11151d;
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1.5fr) auto;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+}
+
+.listing-main {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.listing-title {
+  font-weight: 600;
+  color: var(--font-light);
+}
+
+.listing-specs {
+  color: var(--secondary-color);
+}
+
+.listing-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  color: var(--secondary-color);
+}
+
+.listing-condition {
+  font-weight: 600;
+}
+
+.listing-seller {
+  font-size: 0.75rem;
+}
+
+.listing-age {
+  font-size: 0.75rem;
+}
+
+.listing-price {
+  align-self: center;
+  font-weight: 700;
+  color: var(--font-values);
+  font-size: 0.95rem;
+}
+
+/* Right: budget + selected parts */
+
+.build-panel {
+  background-color: #1b2234;
+  border-radius: 8px;
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.build-budget {
+  border-radius: 8px;
+  border: 1px solid #11151d;
+  padding: 0.6rem 0.7rem;
+  font-size: 0.8rem;
+}
+
+.build-budget-label {
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  color: var(--secondary-color);
+}
+
+.build-budget-values {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.35rem;
+}
+
+.build-budget-total {
+  font-weight: 600;
+}
+
+.build-budget-spent {
+  color: var(--font-values);
+}
+
+/* Selected parts grid */
+
+.build-parts-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.4rem;
+}
+
+.build-part-slot {
+  border-radius: 6px;
+  border: 1px dashed #343c52;
+  padding: 0.4rem 0.5rem;
+  font-size: 0.75rem;
+  color: var(--secondary-color);
+}
+
+.build-part-label {
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  margin-bottom: 0.15rem;
+}
+
+.build-part-value {
+  font-size: 0.75rem;
+}
+
+/* Build actions */
+
+.build-actions {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.build-name-input {
+  width: 100%;
+  padding: 0.35rem 0.45rem;
+  border-radius: 6px;
+  border: 1px solid #343c52;
+  background-color: #171c2b;
+  color: var(--font-light);
+  font-size: 0.8rem;
+}
+
+.build-buttons {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.btn {
+  flex: 1;
+  padding: 0.4rem 0.6rem;
+  border-radius: 6px;
+  border: none;
+  font-size: 0.8rem;
+  cursor: pointer;
+  font-family: var(--body-font);
+}
+
+.btn-primary {
+  background-color: var(--accent-color-dark-bg);
+  color: var(--font-light);
+}
+
+.btn-secondary {
+  background-color: #171c2b;
+  color: var(--secondary-color);
+  border: 1px solid #343c52;
+}
+
+/* Simple responsiveness */
+
+@media (max-width: 900px) {
+  .app-main {
+    grid-template-columns: 1fr;
+  }
+
+  .build-panel {
+    order: -1;
+  }
+}
