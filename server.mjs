@@ -1,44 +1,51 @@
 import express from "express";
 import dotenv from "dotenv";
+import { Resend } from "resend";
 
 dotenv.config();
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 const app = express();
 app.use(express.json());
 
-const TWILIO_EMAIL_URL = "https://comms.twilio.com/v1/Emails";
-
 app.post("/send-email", async (req, res) => {
   try {
-    const payload = {
-      from: {
-        address: process.env.TWILIO_EMAIL_FROM,
-        name: "Trial with Twilio"
-      },
-      to: [{ address: process.env.TWILIO_EMAIL_TO }],
-      content: {
-        subject: "Your Order Has Been Confirmed!",
-        html: "<p><b>This is a test email from Twilio.</b></p>"
-      }
-    };
+    const { buildName, parts } = req.body;
 
-    const auth =
-      "Basic " +
-      Buffer.from(
-        `${process.env.TWILIO_ACCOUNT_SID}:${process.env.TWILIO_AUTH_TOKEN}`
-      ).toString("base64");
+    // Placeholder if nothing is selected yet
+    const safeBuildName = buildName || "Sample PC Build";
+    const safeParts = parts && parts.length > 0
+      ? parts
+      : [
+          { type: "CPU", name: "Placeholder CPU", price: 0 },
+          { type: "GPU", name: "Placeholder GPU", price: 0 },
+          { type: "RAM", name: "Placeholder RAM", price: 0 }
+        ];
 
-    const response = await fetch(TWILIO_EMAIL_URL, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: auth
-      },
-      body: JSON.stringify(payload)
+    const html = `
+      <h1>Your PC Build: ${safeBuildName}</h1>
+      <ul>
+        ${safeParts
+          .map(
+            (p) =>
+              `<li><b>${p.type}:</b> ${p.name} — $${p.price}</li>`
+          )
+          .join("")}
+      </ul>
+      <p><b>Total:</b> $${safeParts.reduce((sum, p) => sum + p.price, 0)}</p>
+    `;
+
+    const { data, error } = await resend.emails.send({
+      from: "Acme <onboarding@resend.dev>",
+      to: process.env.EMAIL_TO,
+      subject: `Your PC Build: ${safeBuildName}`,
+      html
     });
 
-    const data = await response.json();
-    res.json(data);
+    if (error) return res.json({ error });
+    res.json({ data });
+
   } catch (err) {
     res.json({ error: err.message });
   }

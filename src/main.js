@@ -1,10 +1,17 @@
-import { sendEmail } from "./scripts/api/twilio.js";
+import { sendEmail } from "./scripts/api/resend.js";
 
 document.getElementById("sendTestMessage").addEventListener("click", async () => {
   const status = document.getElementById("status");
   status.textContent = "Sending…";
 
-  const result = await sendEmail();
+  const buildName = window.currentBuildName;   // however you're storing it
+  const parts = window.currentPartsList;       // array of parts
 
-  status.textContent = result.error ? `Failed due to: ${result.error}` : "Email sent!";
+  try {
+    const result = await sendEmail("Sample PC Build",[]); // empty parts list triggers placeholder
+
+    status.innerHTML = `Your build has been sent!`;
+  } catch (err) {
+    status.textContent = "Failed due to: " + err.message;
+  }
 });
