@@ -1,8 +1,0 @@
-{
-  "type": "module",
-  "dependencies": {
-    "express": "^4.19.2",
-    "twilio": "^4.0.0",
-    "dotenv": "^16.4.0"
-  }
-}

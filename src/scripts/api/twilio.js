@@ -1,18 +1,18 @@
-document
-  .getElementById("sendTestMessage")
-  .addEventListener("click", async () => {
-    const status = document.getElementById("status");
-    status.textContent = "Sending…";
+export async function sendEmail() {
+  try {
+    const res = await fetch("/send-email", {
+      method: "POST"
+    });
+
+    const text = await res.text();
 
     try {
-      const res = await fetch("/send-sms", { method: "POST" });
-      const data = await res.json();
-
-      status.textContent = data.success
-        ? "Message sent!"
-        : "Failed to send message.";
-    } catch (err) {
-      status.textContent = "Error sending message.";
-      console.error(err);
+      return JSON.parse(text);
+    } catch {
+      return { error: "Invalid JSON from server", raw: text };
     }
-  });
+
+  } catch (err) {
+    return { error: err.message };
+  }
+}
