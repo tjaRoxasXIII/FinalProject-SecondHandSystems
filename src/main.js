@@ -1,4 +1,5 @@
 import { sendEmail } from "./scripts/api/resend.js";
+import { setActivePart } from "./scripts/partButtons.js"
 
 document.getElementById("sendTestMessage").addEventListener("click", async () => {
   const status = document.getElementById("status");
