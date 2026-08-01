@@ -11,7 +11,7 @@ app.use(express.json());
 
 // CORS FIX
 app.use(cors({
-  origin: "http://localhost:5173",
+  origin: "https://finalproject-secondhandsystems.onrender.com",
   methods: ["GET", "POST"],
   allowedHeaders: ["Content-Type", "Authorization"]
 }));
