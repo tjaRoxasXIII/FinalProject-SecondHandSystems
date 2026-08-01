@@ -1,6 +1,6 @@
-// ebaySearch.js
-import { Buffer } from "node:buffer";
-import dotenv from "dotenv";
+import { Buffer } from "node:buffer"
+import dotenv from "dotenv"
+
 dotenv.config();
 
 const sandbox = false;

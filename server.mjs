@@ -1,9 +1,8 @@
-// server.mjs
-import express from "express";
-import dotenv from "dotenv";
-import cors from "cors";
-import { Resend } from "resend";
-import { searchEbay } from "./src/scripts/api/ebaySearch.js";
+import express from "express"
+import dotenv from "dotenv"
+import cors from "cors"
+import { Resend } from "resend"
+import { searchEbay } from "./src/scripts/api/ebaySearch.js"
 
 dotenv.config();
 
