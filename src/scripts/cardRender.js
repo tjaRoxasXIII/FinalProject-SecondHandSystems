@@ -6,15 +6,20 @@ export function createListingCard(item) {
   const main = document.createElement("div");
   main.className = "listing-main";
 
+  const titleLink = document.createElement("a");
+  titleLink.href = item.link;
+  titleLink.className = "listing-title";
+
   const title = document.createElement("div");
-  title.className = "listing-title";
   title.textContent = item.title || "Unknown item";
+
+  titleLink.appendChild(title);
 
   const specs = document.createElement("div");
   specs.className = "listing-specs";
   specs.textContent = item.shortDescription || "";
 
-  main.appendChild(title);
+  main.appendChild(titleLink);
   main.appendChild(specs);
 
   // META SECTION

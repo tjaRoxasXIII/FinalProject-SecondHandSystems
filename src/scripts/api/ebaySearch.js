@@ -3,7 +3,7 @@ import { Buffer } from "node:buffer";
 import dotenv from "dotenv";
 dotenv.config();
 
-const sandbox = true;
+const sandbox = false;
 
 const identityURL = sandbox
   ? "https://api.sandbox.ebay.com/identity/v1/oauth2/token"

@@ -68,7 +68,6 @@ app.post("/send-email", async (req, res) => {
   }
 });
 
-
 // EBAY SEARCH PATH
 app.get("/search-part", async (req, res) => {
   const { part, platform, category_ids, budget } = req.query;
@@ -94,8 +93,6 @@ app.get("/search-part", async (req, res) => {
       queryString += `&filter=price:[10..${budget}],priceCurrency:USD`;
     }
 
-    console.log("EBAY QUERY:", queryString);
-
     const ebayData = await searchEbay(queryString);
 
     const listings = (ebayData.itemSummaries || []).map(item => ({
@@ -104,14 +101,13 @@ app.get("/search-part", async (req, res) => {
       condition: item.condition,
       seller: item.seller,
       price: item.price,
-      image: item.image.imageUrl || null,
+      image: item.image?.imageUrl || null,
       link: item.itemWebUrl
     }));
 
     res.json({ listings });
 
   } catch (err) {
-    console.error("EBAY SEARCH ERROR:", err);
     res.json({ error: err.message });
   }
 });
