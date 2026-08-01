@@ -11,12 +11,26 @@ app.use(express.json());
 
 // CORS FIX
 app.use(cors({
-  origin: ["http://localhost:5173/",
-    "https://tjaroxasxiii.github.io",
-    "https://finalproject-secondhandsystems.onrender.com"],
+  origin: (origin, callback) => {
+    const allowed = [
+      "http://localhost:5173",
+      "http://127.0.0.1:5173",
+      "http://localhost:3001",
+      "https://tjaroxasxiii.github.io"
+    ];
+
+    if (!origin || allowed.includes(origin)) {
+      return callback(null, true);
+    }
+
+    console.log("Blocked by CORS:", origin);
+    return callback(new Error("Not allowed by CORS"));
+  },
   methods: ["GET", "POST"],
   allowedHeaders: ["Content-Type", "Authorization"]
 }));
+
+app.use(express.json());
 
 // RESEND EMAIL ROUTE (unchanged)
 const resend = new Resend(process.env.RESEND_API_KEY);
