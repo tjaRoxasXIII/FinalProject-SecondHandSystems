@@ -13,7 +13,7 @@ export async function fetchAndRenderListings(partName, platform, categoryId) {
 
   try {
     const response = await fetch(
-      `http://localhost:3001/search-part?${params.toString()}&category_ids=${categoryId}`
+      `https://finalproject-secondhandsystems.onrender.com/search-part?${params.toString()}&category_ids=${categoryId}`
     );
 
     const data = await response.json();
