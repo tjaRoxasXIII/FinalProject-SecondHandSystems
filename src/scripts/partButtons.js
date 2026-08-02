@@ -39,7 +39,7 @@ function updateListingsForPart(partName) {
   listingsList.innerHTML = "";
   platformToggleContainer.innerHTML = "";
 
-  if (partName === "CPU" || partName === "GPU" || partName === "MOBO") {
+  if (partName) {
     renderPlatformToggle(partName);
   }
 }

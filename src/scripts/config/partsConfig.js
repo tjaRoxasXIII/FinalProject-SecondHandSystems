@@ -12,7 +12,7 @@ export const PART_CONFIG = {
       { label: "AMD Boards", search: "AM4 motherboard" },
       { label: "Intel Boards", search: "LGA motherboard" }
     ],
-    categoryId: 182
+    categoryId: 1244
   },
 
   GPU: {
@@ -21,5 +21,42 @@ export const PART_CONFIG = {
       { label: "AMD", search: "Radeon" }
     ],
     categoryId: 27386
+  },
+  RAM: {
+    choices: [
+      { label: "DDR4", search: "DDR4 RAM" },
+      { label: "DDR5", search: "DDR5 RAM" }
+    ],
+    categoryId: 170083
+  },
+
+  "SSD/HDD": {
+    choices: [
+      { label: "SATA SSD", search: "SATA SSD" },
+      { label: "NVMe SSD", search: "NVMe SSD" }
+    ],
+    categoryId: 175669
+  },
+  PSU: {
+    choices: [
+      { label: "Standard PSU", search: "PC power supply" }
+    ],
+    categoryId: 42017
+  },
+  CASE: {
+    choices: [
+      { label: "ATX Case", search: "ATX PC case" },
+      { label: "MicroATX Case", search: "MicroATX PC case" },
+      { label: "Mini-ITX Case", search: "Mini-ITX PC case" }
+    ],
+    categoryId: 42014
+  },
+  COOLER: {
+    choices: [
+      { label: "Air Cooler", search: "CPU air cooler" },
+      { label: "Liquid Cooler", search: "CPU AIO cooler" }
+    ],
+    categoryId: 175675
   }
+
 };

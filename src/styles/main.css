@@ -105,6 +105,7 @@ body {
   padding: 0.75rem 0.75rem 1rem;
   display: flex;
   flex-direction: column;
+  height: 100vh;
 }
 
 .listings-header {
@@ -129,6 +130,9 @@ body {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  flex: 1;
+  overflow-y: auto;
+  min-height: 0;
 }
 
 /* Listing card */
