@@ -40,9 +40,9 @@
 
       <section class="listings-panel">
         <div class="listings-header">
-          <div class="listings-title">PROCESSOR</div>
+          <div class="listings-title"></div>
           <div class="listings-platform-toggle"></div>
-          <div class="listings-count">5 listings</div>
+          <div class="listings-count"></div>
         </div>
 
         <div class="listings-list">
@@ -59,13 +59,39 @@
       <aside class="build-panel">
 
         <div class="build-budget">
-          <div class="build-budget-label">Budget</div>
-          <div class="build-budget-values">
-            <p>$</p>
-            <input class="build-budget-total" type="number" value="600">
-            <span class="build-budget-spent">$0 spent</span>
-          </div>
-        </div>
+  <div class="build-budget-label">Budget</div>
+
+  <div class="build-budget-values">
+
+    <div class="budget-control">
+
+      <input 
+        type="range" 
+        id="budget-slider" 
+        min="0" 
+        max="3000" 
+        step="10"
+        value="600"
+      />
+
+      <div class="budget-input-wrapper">
+        <span>$</span>
+        <input 
+          type="number" 
+          id="budget-input" 
+          min="0" 
+          max="3000" 
+          step="10"
+          value="600"
+        />
+      </div>
+
+    </div>
+
+    <span class="build-budget-spent">$0 spent</span>
+
+  </div>
+</div>
 
         <div class="build-parts-grid">
           <div class="build-part-slot">

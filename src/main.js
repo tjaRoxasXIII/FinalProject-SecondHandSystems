@@ -1,12 +1,14 @@
 import { sendEmail } from "./scripts/api/resend.js";
 import { setActivePart } from "./scripts/partButtons.js"
+import { initBudgetControls, addPartControls } from "./scripts/budgetControl.js";
+import { USER_BUDGET, setUserBudget } from "./scripts/budgetState.js";
+
 
 const sidebarItems = document.querySelectorAll(".sidebar-item");
 const listingsTitle = document.querySelector(".listings-title");
 const listingsCount = document.querySelector(".listings-count");
 const listingsList = document.querySelector(".listings-list");
 const platformToggleContainer = document.querySelector(".listings-platform-toggle");
-const USER_BUDGET = 600;
 
 export {
   listingsCount,
@@ -14,7 +16,6 @@ export {
   listingsTitle,
   platformToggleContainer,
   sidebarItems,
-  USER_BUDGET
 };
 
 sidebarItems.forEach(item => {
@@ -39,3 +40,9 @@ document.getElementById("sendTestMessage").addEventListener("click", async () =>
     status.textContent = "Failed due to: " + err.message;
   }
 });
+
+initBudgetControls((newBudget) => {
+  setUserBudget(newBudget);
+  runSearch();
+});
+addPartControls();

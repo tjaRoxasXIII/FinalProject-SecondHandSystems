@@ -1,4 +1,4 @@
-export function createListingCard(item) {
+export function createListingCard(item, currentPart) {
   const card = document.createElement("div");
   card.className = "listing-card";
 
@@ -32,9 +32,12 @@ export function createListingCard(item) {
 
   const seller = document.createElement("div");
   seller.className = "listing-seller";
-  seller.textContent = item.seller?.username
-    ? `@${item.seller.username}`
-    : "@unknown";
+  seller.textContent = `Seller: ${item.seller?.username || "@unknown"}`;
+
+  const sellerRating = document.createElement("div");
+  sellerRating.className = "listing-seller-rating";
+  sellerRating.textContent = `Seller Rating: ${item.seller?.feedbackPercentage !== null ? `${item.seller.feedbackPercentage}%` : "N/A"}`;
+  seller.appendChild(sellerRating);
 
   const age = document.createElement("div");
   age.className = "listing-age";
@@ -63,10 +66,18 @@ export function createListingCard(item) {
     card.appendChild(img);
   }
 
+  const addBtn = document.createElement("button");
+  addBtn.className = "add-part-btn";
+  addBtn.textContent = "Add Part";
+
+  addBtn.dataset.part = currentPart;
+  addBtn.dataset.price = item.price?.value || 0;
+
   // Assemble card
   card.appendChild(main);
   card.appendChild(meta);
   card.appendChild(price);
+  card.appendChild(addBtn);
 
   return card;
 }

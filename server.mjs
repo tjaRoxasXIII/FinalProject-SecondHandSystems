@@ -116,6 +116,7 @@ app.get("/search-part", async (req, res) => {
       condition: item.condition,
       seller: item.seller,
       price: item.price,
+      shipping: item.shippingOptions?.[0]?.shippingCost?.value || null,
       image: item.image?.imageUrl || null,
       link: item.itemWebUrl
     }));

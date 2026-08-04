@@ -1,5 +1,6 @@
-import { listingsList, listingsCount, USER_BUDGET } from "../main.js";
+import { listingsList, listingsCount} from "../main.js";
 import { createListingCard } from "./cardRender.js";
+import { USER_BUDGET } from "./budgetState.js";
 
 export async function fetchAndRenderListings(partName, platform, categoryId) {
   listingsList.innerHTML = "";
@@ -17,7 +18,6 @@ export async function fetchAndRenderListings(partName, platform, categoryId) {
     );
 
     const data = await response.json();
-    console.log(data);
 
     if (data.error) {
       listingsCount.textContent = "Error loading listings";
@@ -31,7 +31,7 @@ export async function fetchAndRenderListings(partName, platform, categoryId) {
     listingsList.innerHTML = "";
 
     listings.forEach(item => {
-      listingsList.appendChild(createListingCard(item));
+      listingsList.appendChild(createListingCard(item, partName));
     });
 
   } catch (err) {

@@ -39,7 +39,8 @@ export const PART_CONFIG = {
   },
   PSU: {
     choices: [
-      { label: "Standard PSU", search: "PC power supply" }
+      { label: "ATX PSU", search: "ATX power supply" },
+      { label: "SFX PSU", search: "SFX power supply" }
     ],
     categoryId: 42017
   },
