@@ -67,8 +67,8 @@ export function createListingCard(item, currentPart) {
   }
 
   const addBtn = document.createElement("button");
-  addBtn.className = "add-part-btn";
-  addBtn.textContent = "Add Part";
+  addBtn.className = "add-part-btn add-btn";
+  addBtn.textContent = "+";
 
   addBtn.dataset.part = currentPart;
   addBtn.dataset.price = item.price?.value || 0;

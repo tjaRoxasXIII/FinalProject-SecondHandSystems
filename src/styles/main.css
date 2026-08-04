@@ -189,6 +189,30 @@ body {
   font-size: 0.95rem;
 }
 
+.add-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  background: #4CAF50;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.1s ease;
+  margin-left: auto;
+}
+
+.add-btn:hover {
+  background: #45a049;
+  transform: scale(1.05);
+}
+
+.add-btn:active {
+  transform: scale(0.95);
+}
 /* Right: budget + selected parts */
 
 .build-panel {

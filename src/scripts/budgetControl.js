@@ -39,6 +39,7 @@ export function addPartControls() {
   const spentDisplay = document.querySelector(".build-budget-spent");
 
   let totalSpent = 0;
+  const currentPrices = {};
 
   document.addEventListener("click", (e) => {
     if (!e.target.classList.contains("add-part-btn")) return;
@@ -52,10 +53,16 @@ export function addPartControls() {
 
     if (!slot) return;
 
-    slot.querySelector(".build-part-value").textContent = `$${price}`;
+    const oldPrice = currentPrices[partType] || 0;
+    totalSpent -= oldPrice;
 
+    // Add new price
+    currentPrices[partType] = price;
     totalSpent += price;
-    spentDisplay.textContent = `$${totalSpent} spent`;
+
+    // Update UI
+    slot.querySelector(".build-part-value").textContent = `$${price}`;
+    spentDisplay.textContent = `$${totalSpent.toFixed(2)} spent`;
   });
 }
 
