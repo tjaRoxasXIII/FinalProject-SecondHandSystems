@@ -43,6 +43,5 @@ document.getElementById("sendTestMessage").addEventListener("click", async () =>
 
 initBudgetControls((newBudget) => {
   setUserBudget(newBudget);
-  runSearch();
 });
 addPartControls();

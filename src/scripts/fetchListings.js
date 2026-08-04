@@ -9,12 +9,13 @@ export async function fetchAndRenderListings(partName, platform, categoryId) {
   const params = new URLSearchParams({
     part: partName,
     platform,
-    budget: USER_BUDGET
+    budget: USER_BUDGET,
+    limit: 50
   });
 
   try {
     const response = await fetch(
-      `https://finalproject-secondhandsystems.onrender.com/search-part?${params.toString()}&category_ids=${categoryId}`
+      `https://finalproject-secondhandsystems.onrender.com/search-part?${params.toString()}&category_ids=${categoryId}&limit=50`
     );
 
     const data = await response.json();

@@ -70,7 +70,7 @@ app.post("/send-email", async (req, res) => {
       from: "SecondHandPC <onboarding@resend.dev>",
       to: [process.env.EMAIL_TO],
       subject: `Build: ${safeBuildName}`,
-      html   // ⭐ send the correct HTML
+      html
     });
 
     if (error) return res.status(500).json({ error });
@@ -96,7 +96,7 @@ app.get("/search-part", async (req, res) => {
       params.set("q", part.toLowerCase());
     }
 
-    params.set("limit", "10");
+    params.set("limit", 50);
 
     if (category_ids) {
       params.set("category_ids", category_ids);

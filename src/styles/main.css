@@ -119,6 +119,7 @@ body {
   font-family: var(--heading-font);
   font-size: 0.95rem;
   letter-spacing: 0.08em;
+  text-decoration: underline;
 }
 
 .listings-count {
@@ -133,6 +134,13 @@ body {
   flex: 1;
   overflow-y: auto;
   min-height: 0;
+  h3 {
+      font-family: var(--heading-font);
+      font-size: 0.8rem;
+      text-align: center;
+      margin-top: 2rem;
+      text-decoration: underline;
+    }
 }
 
 /* Listing card */
