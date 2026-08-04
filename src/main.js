@@ -8,11 +8,13 @@ const sidebarItems = document.querySelectorAll(".sidebar-item");
 const listingsTitle = document.querySelector(".listings-title");
 const listingsCount = document.querySelector(".listings-count");
 const listingsList = document.querySelector(".listings-list");
+const listingsSort = document.querySelector(".listings-sort-container");
 const platformToggleContainer = document.querySelector(".listings-platform-toggle");
 
 export {
   listingsCount,
   listingsList,
+  listingsSort,
   listingsTitle,
   platformToggleContainer,
   sidebarItems,

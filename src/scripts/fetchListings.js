@@ -1,6 +1,9 @@
-import { listingsList, listingsCount} from "../main.js";
+import { listingsList, listingsCount, listingsSort} from "../main.js";
 import { createListingCard } from "./cardRender.js";
 import { USER_BUDGET } from "./budgetState.js";
+import { sortListings} from "./sortListings.js";
+
+let listings = [];
 
 export async function fetchAndRenderListings(partName, platform, categoryId) {
   listingsList.innerHTML = "";
@@ -26,17 +29,29 @@ export async function fetchAndRenderListings(partName, platform, categoryId) {
       return;
     }
 
-    const listings = data.listings || [];
+    listings = data.listings || [];
 
     listingsCount.textContent = `${listings.length} listings`;
     listingsList.innerHTML = "";
+    listingsSort.hidden = false;
 
-    listings.forEach(item => {
-      listingsList.appendChild(createListingCard(item, partName));
-    });
+    renderListings(listings, partName);
+
+    listingsSort.onchange = (e) => {
+      const mode = e.target.value;
+      const sorted = sortListings(listings, mode);
+      renderListings(sorted, partName);
+    };
 
   } catch (err) {
     console.error("FETCH LISTINGS ERROR:", err);
     listingsCount.textContent = "Error loading listings";
   }
+}
+
+function renderListings(list, partName) {
+  listingsList.innerHTML = "";
+  list.forEach(item => {
+    listingsList.appendChild(createListingCard(item, partName));
+  });
 }

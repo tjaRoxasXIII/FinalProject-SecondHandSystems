@@ -1,6 +1,4 @@
-import { createListingCard } from "./cardRender.js"
 import { PART_CONFIG } from "./config/partsConfig.js"
-import { fetchAndRenderListings } from "./fetchListings.js"
 import { sidebarItems, listingsTitle, listingsCount, listingsList, platformToggleContainer } from "../main.js"
 import { renderPlatformToggle } from "./platformToggle.js"
 
