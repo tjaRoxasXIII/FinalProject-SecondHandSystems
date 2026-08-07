@@ -1,4 +1,5 @@
 import { setUserBudget } from "./budgetState.js";
+import { currentBuild } from "./currentBuild.js";
 
 export function initBudgetControls(runSearchCallback) {
   const slider = document.getElementById("budget-slider");
@@ -47,6 +48,8 @@ export function addPartControls() {
     const partType = e.target.dataset.part;
     const price = Number(e.target.dataset.price);
 
+    const itemObj = JSON.parse(e.target.dataset.item);
+
     const slot = [...buildSlots].find(slot =>
       slot.querySelector(".build-part-label").textContent.trim() === partType
     );
@@ -63,6 +66,8 @@ export function addPartControls() {
     // Update UI
     slot.querySelector(".build-part-value").textContent = `$${price}`;
     spentDisplay.textContent = `$${totalSpent.toFixed(2)} spent`;
+
+    currentBuild[partType] = itemObj;
   });
 }
 

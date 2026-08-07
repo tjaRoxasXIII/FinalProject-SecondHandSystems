@@ -79,5 +79,7 @@ export function createListingCard(item, currentPart) {
   card.appendChild(price);
   card.appendChild(addBtn);
 
+  addBtn.dataset.item = JSON.stringify(item);
+
   return card;
 }
