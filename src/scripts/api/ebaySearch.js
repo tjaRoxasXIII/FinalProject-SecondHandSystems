@@ -1,5 +1,5 @@
-import { Buffer } from "node:buffer"
-import dotenv from "dotenv"
+import { Buffer } from "node:buffer";
+import dotenv from "dotenv";
 
 dotenv.config();
 
@@ -22,18 +22,20 @@ async function getEbayToken() {
     ? process.env.SBX_EBAY_CLIENT_SECRET
     : process.env.EBAY_CLIENT_SECRET;
 
-  const basicAuth = Buffer.from(`${clientId}:${clientSecret}`).toString("base64");
+  const basicAuth = Buffer.from(`${clientId}:${clientSecret}`).toString(
+    "base64",
+  );
 
   const response = await fetch(identityURL, {
     method: "POST",
     headers: {
-      "Authorization": `Basic ${basicAuth}`,
-      "Content-Type": "application/x-www-form-urlencoded"
+      Authorization: `Basic ${basicAuth}`,
+      "Content-Type": "application/x-www-form-urlencoded",
     },
     body: new URLSearchParams({
       grant_type: "client_credentials",
-      scope: "https://api.ebay.com/oauth/api_scope"
-    })
+      scope: "https://api.ebay.com/oauth/api_scope",
+    }),
   });
 
   if (!response.ok) {
@@ -52,10 +54,10 @@ export async function searchEbay(queryString) {
   const response = await fetch(url, {
     method: "GET",
     headers: {
-      "Authorization": `Bearer ${token}`,
+      Authorization: `Bearer ${token}`,
       "Content-Type": "application/json",
-      "X-EBAY-C-MARKETPLACE-ID": "EBAY_US"
-    }
+      "X-EBAY-C-MARKETPLACE-ID": "EBAY_US",
+    },
   });
 
   console.log(url);

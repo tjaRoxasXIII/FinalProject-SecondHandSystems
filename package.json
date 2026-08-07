@@ -4,9 +4,14 @@
   "private": true,
   "scripts": {
     "dev": "vite",
-    "start-server": "node server.js"
+    "start-server": "node server.js",
+    "lint": "eslint .",
+    "format": "prettier --write ."
   },
   "devDependencies": {
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.6",
+    "prettier": "^3.9.6",
     "vite": "^8.1.1"
   },
   "dependencies": {

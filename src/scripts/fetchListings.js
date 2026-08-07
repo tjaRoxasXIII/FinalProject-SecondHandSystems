@@ -1,7 +1,7 @@
-import { listingsList, listingsCount, listingsSort} from "../main.js";
+import { listingsList, listingsCount, listingsSort } from "../main.js";
 import { createListingCard } from "./cardRender.js";
 import { USER_BUDGET } from "./budgetState.js";
-import { sortListings} from "./sortListings.js";
+import { sortListings } from "./sortListings.js";
 
 let listings = [];
 
@@ -13,12 +13,12 @@ export async function fetchAndRenderListings(partName, platform, categoryId) {
     part: partName,
     platform,
     budget: USER_BUDGET,
-    limit: 50
+    limit: 50,
   });
 
   try {
     const response = await fetch(
-      `https://finalproject-secondhandsystems.onrender.com/search-part?${params.toString()}&category_ids=${categoryId}&limit=50`
+      `https://finalproject-secondhandsystems.onrender.com/search-part?${params.toString()}&category_ids=${categoryId}&limit=50`,
     );
 
     const data = await response.json();
@@ -42,7 +42,6 @@ export async function fetchAndRenderListings(partName, platform, categoryId) {
       const sorted = sortListings(listings, mode);
       renderListings(sorted, partName);
     };
-
   } catch (err) {
     console.error("FETCH LISTINGS ERROR:", err);
     listingsCount.textContent = "Error loading listings";
@@ -51,7 +50,7 @@ export async function fetchAndRenderListings(partName, platform, categoryId) {
 
 function renderListings(list, partName) {
   listingsList.innerHTML = "";
-  list.forEach(item => {
+  list.forEach((item) => {
     listingsList.appendChild(createListingCard(item, partName));
   });
 }

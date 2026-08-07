@@ -1,15 +1,19 @@
-import { PART_CONFIG } from "./config/partsConfig.js"
-import { sidebarItems, listingsTitle, listingsCount, listingsList, platformToggleContainer } from "../main.js"
-import { renderPlatformToggle } from "./platformToggle.js"
+import { PART_CONFIG } from "./config/partsConfig.js";
+import {
+  sidebarItems,
+  listingsTitle,
+  listingsCount,
+  listingsList,
+  platformToggleContainer,
+} from "../main.js";
+import { renderPlatformToggle } from "./platformToggle.js";
 
 // MAIN ENTRY
 export function setActivePart(partName) {
-  sidebarItems.forEach(item =>
-    item.classList.remove("sidebar-item--active")
-  );
+  sidebarItems.forEach((item) => item.classList.remove("sidebar-item--active"));
 
   const clickedItem = [...sidebarItems].find(
-    item => item.textContent.trim().toLowerCase() === partName.toLowerCase()
+    (item) => item.textContent.trim().toLowerCase() === partName.toLowerCase(),
   );
 
   if (clickedItem) {

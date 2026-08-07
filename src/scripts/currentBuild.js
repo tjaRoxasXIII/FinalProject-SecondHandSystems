@@ -7,7 +7,7 @@ export const currentBuild = {
   PSU: null,
   CASE: null,
   COOLER: null,
-  STORAGE: null
+  STORAGE: null,
 };
 
 // Save a completed build to localStorage
@@ -17,7 +17,7 @@ export function saveBuild(buildName) {
   const newBuild = {
     name: buildName,
     timestamp: Date.now(),
-    parts: { ...currentBuild }
+    parts: { ...currentBuild },
   };
 
   savedBuilds.push(newBuild);

@@ -14,7 +14,7 @@ export function initBudgetControls(runSearchCallback) {
   slider.addEventListener("input", () => {
     const val = Number(slider.value);
     input.value = val;
-    
+
     setUserBudget(val);
     runSearchCallback(val);
   });
@@ -50,8 +50,9 @@ export function addPartControls() {
 
     const itemObj = JSON.parse(e.target.dataset.item);
 
-    const slot = [...buildSlots].find(slot =>
-      slot.querySelector(".build-part-label").textContent.trim() === partType
+    const slot = [...buildSlots].find(
+      (slot) =>
+        slot.querySelector(".build-part-label").textContent.trim() === partType,
     );
 
     if (!slot) return;
@@ -70,4 +71,3 @@ export function addPartControls() {
     currentBuild[partType] = itemObj;
   });
 }
-

@@ -1,44 +1,45 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Your Builds</title>
-    <link rel="stylesheet" href="src/styles/main.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Roboto+Condensed:wght@300;400;700&display=swap" rel="stylesheet">
-</head>
+    <link rel="stylesheet" href="src/styles/main.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Roboto+Condensed:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-<body>
+  <body>
     <div class="app-shell">
+      <header class="app-header">
+        <div class="app-logo">SECOND-HAND SYSTEMS</div>
+        <div class="app-views">
+          <a href="index.html">
+            <button id="builder-view-btn" class="btn btn-secondary">
+              BUILDER
+            </button>
+          </a>
+          <a href="saved-builds.html">
+            <button id="my-builds-view-btn" class="btn btn-primary">
+              MY BUILDS
+            </button>
+          </a>
+        </div>
+      </header>
 
-    <header class="app-header">
-      <div class="app-logo">SECOND-HAND SYSTEMS</div>
-      <div class="app-views">
-        <a href="index.html">
-            <button id="builder-view-btn" class="btn btn-secondary">BUILDER</button>
-        </a>
-        <a href="saved-builds.html">
-            <button id="my-builds-view-btn" class="btn btn-primary">MY BUILDS</button>
-        </a>
-      </div>
-    </header>
-
-    <main class="app-main">
-
+      <main class="app-main">
         <!-- SIDEBAR -->
         <aside class="sidebar">
-            <h2 class="sidebar-title">Your Builds</h2>
-            <ul class="sidebar-list"></ul>
+          <h2 class="sidebar-title">Your Builds</h2>
+          <ul class="sidebar-list"></ul>
         </aside>
 
         <!-- MAIN PANEL -->
-        <main class="builds-panel">
-            <div class="builds-grid"></div>
-        </main>
-
+        <aside class="builds-panel">
+          <div class="builds-grid"></div>
+        </aside>
+      </main>
     </div>
-
-    
-</body>
-
+  </body>
 </html>

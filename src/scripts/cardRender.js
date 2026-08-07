@@ -53,9 +53,7 @@ export function createListingCard(item, currentPart) {
   const price = document.createElement("div");
   price.className = "listing-price";
   const priceObj = item.price;
-  price.textContent = priceObj
-    ? `$${priceObj.value}`
-    : "$?";
+  price.textContent = priceObj ? `$${priceObj.value}` : "$?";
 
   // IMAGE (fixed width)
   if (item.image) {

@@ -19,9 +19,9 @@ export function initBuildSaveControls() {
   });
 
   // CLEAR BUILD
-    clearBtn.addEventListener("click", () => {
-      const confirmed = window.confirm(
-      "Are you sure you want to clear this build? All selected parts will be removed."
+  clearBtn.addEventListener("click", () => {
+    const confirmed = window.confirm(
+      "Are you sure you want to clear this build? All selected parts will be removed.",
     );
     if (!confirmed) return;
 
@@ -35,7 +35,7 @@ export function initBuildSaveControls() {
 
     // 3. Clear the UI build panel values
     const buildSlots = document.querySelectorAll(".build-part-slot");
-    buildSlots.forEach(slot => {
+    buildSlots.forEach((slot) => {
       const valuePanel = slot.querySelector(".build-part-value");
       if (valuePanel) valuePanel.textContent = "$0";
     });

@@ -1,163 +1,170 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SecondHandPC Builder</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SecondHandPC Builder</title>
 
-  <link rel="stylesheet" href="src/styles/main.css">
-  <script type="module" src="src/main.js"></script>
-  <script type="module" src="./src/scripts/partButtons.js"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Roboto+Condensed:wght@300;400;700&display=swap" rel="stylesheet">
-</head>
+    <link rel="stylesheet" href="src/styles/main.css" />
+    <script type="module" src="src/main.js"></script>
+    <script type="module" src="./src/scripts/partButtons.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Roboto+Condensed:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-<body>
-  <div class="app-shell">
+  <body>
+    <div class="app-shell">
+      <header class="app-header">
+        <div class="app-logo">SECOND-HAND SYSTEMS</div>
+        <div class="app-views">
+          <a href="index.html">
+            <button id="builder-view-btn" class="btn btn-primary">
+              BUILDER
+            </button>
+          </a>
+          <a href="saved-builds.html">
+            <button id="my-builds-view-btn" class="btn btn-secondary">
+              MY BUILDS
+            </button>
+          </a>
+        </div>
+      </header>
 
-    <header class="app-header">
-      <div class="app-logo">SECOND-HAND SYSTEMS</div>
-      <div class="app-views">
-        <a href="index.html">
-          <button id="builder-view-btn" class="btn btn-primary">BUILDER</button>
-        </a>
-        <a href="saved-builds.html">
-          <button id="my-builds-view-btn" class="btn btn-secondary">MY BUILDS</button>
-        </a>
-          
-      </div>
-    </header>
+      <main class="app-main">
+        <aside class="sidebar">
+          <div class="sidebar-title">Components</div>
+          <ul class="sidebar-list">
+            <li class="sidebar-item">CPU</li>
+            <li class="sidebar-item">GPU</li>
+            <li class="sidebar-item">RAM</li>
+            <li class="sidebar-item">SSD/HDD</li>
+            <li class="sidebar-item">MOBO</li>
+            <li class="sidebar-item">PSU</li>
+            <li class="sidebar-item">CASE</li>
+            <li class="sidebar-item">COOLER</li>
+          </ul>
+        </aside>
 
-    <main class="app-main">
-
-      <aside class="sidebar">
-        <div class="sidebar-title">Components</div>
-        <ul class="sidebar-list">
-          <li class="sidebar-item">CPU</li>
-          <li class="sidebar-item">GPU</li>
-          <li class="sidebar-item">RAM</li>
-          <li class="sidebar-item">SSD/HDD</li>
-          <li class="sidebar-item">MOBO</li>
-          <li class="sidebar-item">PSU</li>
-          <li class="sidebar-item">CASE</li>
-          <li class="sidebar-item">COOLER</li>
-        </ul>
-      </aside>
-
-      <section class="listings-panel">
-        <div class="listings-header">
-          <div class="listings-title"></div>
-          <div class="listings-platform-toggle"></div>
-          <div class="listings-sort-container" hidden>
-            <label for="listings-sort">Sort by:</label>
-            <select id="listings-sort" class="listings-sort">
-              <option value="default">Default</option>
-              <option value="price-low">Price: Low to High</option>
-              <option value="price-high">Price: High to Low</option>
-            </select>
+        <section class="listings-panel">
+          <div class="listings-header">
+            <div class="listings-title"></div>
+            <div class="listings-platform-toggle"></div>
+            <div class="listings-sort-container" hidden>
+              <label for="listings-sort">Sort by:</label>
+              <select id="listings-sort" class="listings-sort">
+                <option value="default">Default</option>
+                <option value="price-low">Price: Low to High</option>
+                <option value="price-high">Price: High to Low</option>
+              </select>
+            </div>
+            <div class="listings-count"></div>
           </div>
-          <div class="listings-count"></div>
-        </div>
 
-        <div class="listings-list">
-          <h3 class="listings-list-empty">Select a component from the left to view listings</h3>
-        </div>
+          <div class="listings-list">
+            <h3 class="listings-list-empty">
+              Select a component from the left to view listings
+            </h3>
+          </div>
 
-        <button id="sendTestMessage">Send Test Message</button>
-        <div id="status"></div>
+          <button id="sendTestMessage">Send Test Message</button>
+          <div id="status"></div>
+        </section>
 
-      </section>
+        <aside class="build-panel">
+          <div class="build-budget">
+            <div class="build-budget-label">Budget</div>
 
-      <aside class="build-panel">
+            <div class="build-budget-values">
+              <div class="budget-control">
+                <input
+                  type="range"
+                  id="budget-slider"
+                  min="0"
+                  max="3000"
+                  step="10"
+                  value="600"
+                />
 
-        <div class="build-budget">
-  <div class="build-budget-label">Budget</div>
+                <div class="budget-input-wrapper">
+                  <span>$</span>
+                  <input
+                    type="number"
+                    id="budget-input"
+                    min="0"
+                    max="3000"
+                    step="10"
+                    value="600"
+                  />
+                </div>
+              </div>
 
-  <div class="build-budget-values">
+              <span class="build-budget-spent">$0 spent</span>
+            </div>
+          </div>
 
-    <div class="budget-control">
+          <div class="build-parts-grid">
+            <div class="build-part-slot">
+              <div class="build-part-label">CPU</div>
+              <div class="build-part-value">None</div>
+            </div>
 
-      <input 
-        type="range" 
-        id="budget-slider" 
-        min="0" 
-        max="3000" 
-        step="10"
-        value="600"
-      />
+            <div class="build-part-slot">
+              <div class="build-part-label">GPU</div>
+              <div class="build-part-value">None</div>
+            </div>
 
-      <div class="budget-input-wrapper">
-        <span>$</span>
-        <input 
-          type="number" 
-          id="budget-input" 
-          min="0" 
-          max="3000" 
-          step="10"
-          value="600"
-        />
-      </div>
+            <div class="build-part-slot">
+              <div class="build-part-label">RAM</div>
+              <div class="build-part-value">None</div>
+            </div>
 
+            <div class="build-part-slot">
+              <div class="build-part-label">SSD/HDD</div>
+              <div class="build-part-value">None</div>
+            </div>
+
+            <div class="build-part-slot">
+              <div class="build-part-label">MOBO</div>
+              <div class="build-part-value">None</div>
+            </div>
+
+            <div class="build-part-slot">
+              <div class="build-part-label">PSU</div>
+              <div class="build-part-value">None</div>
+            </div>
+
+            <div class="build-part-slot">
+              <div class="build-part-label">CASE</div>
+              <div class="build-part-value">None</div>
+            </div>
+
+            <div class="build-part-slot">
+              <div class="build-part-label">COOLER</div>
+              <div class="build-part-value">None</div>
+            </div>
+          </div>
+
+          <div class="build-actions">
+            <input
+              id="build-name-input"
+              class="build-name-input"
+              type="text"
+              placeholder="Build name..."
+            />
+
+            <div class="build-buttons">
+              <button id="saveBuildBtn" class="btn btn-primary">
+                Save Build
+              </button>
+              <button id="clearBuildBtn" class="btn btn-secondary">
+                Clear
+              </button>
+            </div>
+          </div>
+        </aside>
+      </main>
     </div>
-
-    <span class="build-budget-spent">$0 spent</span>
-
-  </div>
-</div>
-
-        <div class="build-parts-grid">
-          <div class="build-part-slot">
-            <div class="build-part-label">CPU</div>
-            <div class="build-part-value">None</div>
-          </div>
-
-          <div class="build-part-slot">
-            <div class="build-part-label">GPU</div>
-            <div class="build-part-value">None</div>
-          </div>
-
-          <div class="build-part-slot">
-            <div class="build-part-label">RAM</div>
-            <div class="build-part-value">None</div>
-          </div>
-
-          <div class="build-part-slot">
-            <div class="build-part-label">SSD/HDD</div>
-            <div class="build-part-value">None</div>
-          </div>
-
-          <div class="build-part-slot">
-            <div class="build-part-label">MOBO</div>
-            <div class="build-part-value">None</div>
-          </div>
-
-          <div class="build-part-slot">
-            <div class="build-part-label">PSU</div>
-            <div class="build-part-value">None</div>
-          </div>
-
-          <div class="build-part-slot">
-            <div class="build-part-label">CASE</div>
-            <div class="build-part-value">None</div>
-          </div>
-
-          <div class="build-part-slot">
-            <div class="build-part-label">COOLER</div>
-            <div class="build-part-value">None</div>
-          </div>
-        </div>
-
-        <div class="build-actions">
-          <input id="build-name-input" class="build-name-input" type="text" placeholder="Build name...">
-
-          <div class="build-buttons">
-            <button id="saveBuildBtn" class="btn btn-primary">Save Build</button>
-            <button id="clearBuildBtn" class="btn btn-secondary">Clear</button>
-          </div>
-        </div>
-
-      </aside>
-
-    </main>
-  </div>
-</body>
+  </body>
 </html>
