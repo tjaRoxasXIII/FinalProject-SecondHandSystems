@@ -4,10 +4,14 @@
     <meta charset="UTF-8" />
     <title>Your Builds</title>
     <link rel="stylesheet" href="src/styles/main.css" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Roboto+Condensed:wght@300;400;700&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Roboto+Condensed:wght@300;400;700&display=swap" rel="stylesheet"/>
+    <script type="module" defer>
+      import { renderSavedBuilds } from "./src/scripts/buildReview.js";
+      import { initSendEmail } from "./src/scripts/sendEmail.js";
+
+      renderSavedBuilds();
+      initSendEmail();
+    </script>
   </head>
 
   <body>
@@ -29,15 +33,21 @@
       </header>
 
       <main class="app-main">
-        <!-- SIDEBAR -->
         <aside class="sidebar">
           <h2 class="sidebar-title">Your Builds</h2>
           <ul class="sidebar-list"></ul>
         </aside>
 
-        <!-- MAIN PANEL -->
         <aside class="builds-panel">
           <div class="builds-grid"></div>
+          <h3 class="listings-list-empty">
+            Select a saved build from the left to view the completed parts list and total price. You can also delete builds from this view.
+          </h3>
+          <div class="email-send-area" hidden>
+            <input id="email-input" type="email" placeholder="Enter email…" />
+            <button id="sendMessage">Email this Build</button>
+            <div id="email-status"></div>
+          </div>
         </aside>
       </main>
     </div>

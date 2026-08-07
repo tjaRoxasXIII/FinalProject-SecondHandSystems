@@ -34,14 +34,17 @@ app.use(
 
 app.use(express.json());
 
-// RESEND EMAIL ROUTE (unchanged)
+// RESEND EMAIL ROUTE
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 app.post("/send-email", async (req, res) => {
   try {
-    const { buildName, parts } = req.body;
+    const { email, buildName, parts } = req.body;
 
-    // Placeholder if nothing is selected yet
+    if (!email) {
+      return res.status(400).json({ error: "Email is required." });
+    }
+
     const safeBuildName = buildName || "Sample PC Build";
     const safeParts =
       parts && parts.length > 0
@@ -53,7 +56,7 @@ app.post("/send-email", async (req, res) => {
             { type: "SSD/HDD", name: "Placeholder Storage", price: 0 },
             { type: "MOBO", name: "Placeholder Motherboard", price: 0 },
             { type: "PSU", name: "Placeholder PSU", price: 0 },
-            { type: "CASE", name: "Placeholder PSU", price: 0 },
+            { type: "CASE", name: "Placeholder Case", price: 0 },
           ];
 
     const html = `
@@ -68,8 +71,8 @@ app.post("/send-email", async (req, res) => {
 
     const { data, error } = await resend.emails.send({
       from: "SecondHandPC <onboarding@resend.dev>",
-      to: [process.env.EMAIL_TO],
-      subject: `Build: ${safeBuildName}`,
+      to: [email],
+      subject: `Second-Hand Systems Build: ${safeBuildName}`,
       html,
     });
 
@@ -81,6 +84,7 @@ app.post("/send-email", async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 });
+
 
 // EBAY SEARCH PATH
 app.get("/search-part", async (req, res) => {
