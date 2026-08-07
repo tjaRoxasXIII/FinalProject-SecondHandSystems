@@ -6,6 +6,17 @@ import { searchEbay } from "./src/scripts/api/ebaySearch.js";
 
 dotenv.config();
 
+const TYPES_ARR = [
+  "CPU", 
+  "GPU",
+  "RAM",
+  "MOBO", 
+  "PSU", 
+  "CASE",
+  "COOLER",
+  "SSD/HDD", 
+]
+
 const app = express();
 app.use(express.json());
 
@@ -63,10 +74,14 @@ app.post("/send-email", async (req, res) => {
       <h1>Your PC Build: ${safeBuildName}</h1>
       <ul>
         ${safeParts
-          .map((p) => `<li><b>${p.type}:</b> ${p.name} — $${p.price}</li>`)
+          .map((p, index) => {
+            return `<li><b>${TYPES_ARR[index]}:</b> ${p.title} — $${p.price.value}</li>`;
+          })
           .join("")}
       </ul>
-      <p><b>Total:</b> $${safeParts.reduce((sum, p) => sum + p.price, 0)}</p>
+      <p><b>Total:</b> $${safeParts
+        .reduce((sum, p) => sum + Number(p.price.value || 0), 0)
+        .toFixed(2)}</p>
     `;
 
     const { data, error } = await resend.emails.send({
