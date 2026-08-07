@@ -75,7 +75,7 @@ app.post("/send-email", async (req, res) => {
       <ul>
         ${safeParts
           .map((p, index) => {
-            return `<li><b>${TYPES_ARR[index]}:</b> ${p.title} — $${p.price.value}</li>`;
+            return `<li><b>${TYPES_ARR[index]}:</b> <a href="${p.link}" target="_blank">${p.title}</a> — $${p.price.value}</li>`;
           })
           .join("")}
       </ul>
