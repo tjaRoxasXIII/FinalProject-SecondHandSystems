@@ -24,7 +24,7 @@ body {
 }
 
 .app-shell {
-  min-height: 100vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
 }
@@ -38,6 +38,7 @@ body {
   padding: 0.75rem 1.5rem;
   background-color: var(--bg-color);
   border-bottom: 1px solid #11151d;
+  flex-shrink: 0;
 }
 
 .app-logo {
@@ -60,14 +61,22 @@ body {
   grid-template-columns: 220px minmax(0, 1fr) 280px;
   gap: 1rem;
   padding: 1rem 1.5rem;
+
+  /* Critical for preventing overflow */
+  overflow: hidden;
+  min-height: 0;
 }
 
-/* Sidebar: component list */
+/* Sidebar */
 
 .sidebar {
   background-color: #1b2234;
   border-radius: 8px;
   padding: 0.75rem;
+
+  /* Allow scrolling */
+  overflow-y: auto;
+  min-height: 0;
 }
 
 .sidebar-title {
@@ -97,7 +106,7 @@ body {
   color: var(--font-light);
 }
 
-/* Center: listings */
+/* Listings panel */
 
 .listings-panel {
   background-color: #1b2234;
@@ -105,7 +114,10 @@ body {
   padding: 0.75rem 0.75rem 1rem;
   display: flex;
   flex-direction: column;
-  height: 100vh;
+
+  /* Fix overflow */
+  overflow-y: auto;
+  min-height: 0;
 }
 
 .listings-header {
@@ -132,15 +144,18 @@ body {
   flex-direction: column;
   gap: 0.5rem;
   flex: 1;
+
+  /* Scroll inside panel */
   overflow-y: auto;
   min-height: 0;
-  h3 {
-      font-family: var(--heading-font);
-      font-size: 0.8rem;
-      text-align: center;
-      margin-top: 2rem;
-      text-decoration: underline;
-    }
+}
+
+.listings-list h3 {
+  font-family: var(--heading-font);
+  font-size: 0.8rem;
+  text-align: center;
+  margin-top: 2rem;
+  text-decoration: underline;
 }
 
 /* Listing card */
@@ -182,10 +197,7 @@ body {
   font-weight: 600;
 }
 
-.listing-seller {
-  font-size: 0.75rem;
-}
-
+.listing-seller,
 .listing-age {
   font-size: 0.75rem;
 }
@@ -221,7 +233,8 @@ body {
 .add-btn:active {
   transform: scale(0.95);
 }
-/* Right: budget + selected parts */
+
+/* Build panel */
 
 .build-panel {
   background-color: #1b2234;
@@ -230,6 +243,10 @@ body {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
+
+  /* Allow scrolling */
+  overflow-y: auto;
+  min-height: 0;
 }
 
 .build-budget {
@@ -251,15 +268,9 @@ body {
   margin-top: 0.35rem;
 }
 
-.build-budget-total {
-  font-weight: 600;
-}
-
 .build-budget-spent {
   color: var(--font-values);
 }
-
-
 
 /* Selected parts grid */
 
@@ -332,7 +343,7 @@ body {
   border: 1px solid #343c52;
 }
 
-/* Simple responsiveness */
+/* Responsive */
 
 @media (max-width: 900px) {
   .app-main {
